@@ -1,4 +1,4 @@
----------------| 1 |----------
+---------------| 1 (1) |----------
 #include <iostream>
 using namespace std;
 //width length height
@@ -22,4 +22,104 @@ int main()
     volume(4.8,6);
     volume(5.7);
 }
-----------------| 2 |------------
+-------------| 2 (4) |------------
+
+#include<iostream>
+
+using namespace std;
+
+class B;
+class A
+{
+    int p;
+public:
+    void f1(int x)
+    {
+        p=x;
+    }
+    friend void process(A,B);
+};
+class B
+{
+    int q;
+public:
+    void f2(int y)
+    {
+        q=y;
+    }
+    friend void process(A,B);
+};
+void process(A t1,B t2)
+{
+    if (t1.p>t2.q)
+    {
+        cout<<"Largest is "<<t1.p;
+        cout<<"Smallest is "<<t2.q;
+    }
+    else
+    {
+        cout<<"Smallest is "<<t1.p;
+        cout<<"Largest is "<<t2.q;
+    }
+}
+int main()
+{
+    A ob1;
+    B ob2;
+    ob1.f1(5);
+    ob2.f2(10);
+    process(ob1,ob2);
+    return 0;
+}
+
+-------------| 3 (7) |---------------
+
+#include<iostream>
+
+using namespace std;
+
+class Area_cl
+{
+public:
+    double height,width;
+};
+class rect:public Area_cl
+{
+public:
+    rect(double x,double y)
+    {
+        height=x;
+        width=y;
+    }
+    void area_rect()
+    {
+        cout<<"Area of rectangle is "<<height*width;
+    }
+
+};
+class isoscale:public Area_cl
+{
+    public:
+    isoscale(double p,double q)
+    {
+        height=p;
+        width=q;
+    }
+    void area_tri()
+    {
+        cout<<"Area of Triangle is "<<0.5*height*width;
+    }
+};
+int main()
+{
+    rect obj1(5,2);
+    obj1.area_rect();
+    isoscale obj2(2,4);
+    obj2.area_tri();
+    return 0;
+}
+
+---------------| 4 (8) |--------------------
+
+
+
