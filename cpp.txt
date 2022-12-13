@@ -1,0 +1,25 @@
+---------------| 1 |----------
+#include <iostream>
+using namespace std;
+//width length height
+int volume(int width, int length, int height){
+    int rectangle = width*length*height;
+    cout<<"Volume of Rectangle is: "<<rectangle<<endl;
+}
+//PI Radius Height
+int volume(double radius, int height){
+    float cylinder = 3.1416*radius*radius*height;
+    cout<<"Volume of Cylinder is: "<<cylinder<<endl;
+}
+//PI Radius Height
+int volume(float length){
+    float cube = length*length*length;
+    cout<<"Volume of Cube is: "<<cube<<endl;
+}
+int main()
+{
+    volume(2,3,4);
+    volume(4.8,6);
+    volume(5.7);
+}
+----------------| 2 |------------
